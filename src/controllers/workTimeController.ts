@@ -1,8 +1,8 @@
 import {Request, Response} from "express";
 
-// import {worktimeModel} from "./../models/worktime";
+import {worktimeModel} from "./../models/worktime";
 
-const mainController = {
+const workTimeController = {
     "getAllWorkTime": async (_req: Request, res: Response) => {
         try {
             // CODE HERE
@@ -122,4 +122,4 @@ const mainController = {
     },
 };
 
-export default mainController;
+export default workTimeController;

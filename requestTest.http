@@ -1,0 +1,179 @@
+@baseUrl = http://localhost:3000
+
+### Récupérer toutes les données liées au Worktime de tous les projets
+GET {{baseUrl}}/worktime/all HTTP/1.1
+
+
+### Récupérer la liste de tous les projets
+GET {{baseUrl}}/project/getall HTTP/1.1
+
+### Ajouter un projet
+POST {{baseUrl}}/project/add HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Projet de test",
+    "description": "Un projet de test pour tester",
+    "color": "00ff00"
+}
+
+### Modifier un projet
+PATCH {{baseUrl}}/project/modify HTTP/1.1
+Content-Type: application/json
+{
+    "id": 2,
+    "name": "Projet de test",
+    "description": "Un projet de test pour tester",
+    "color": "00ff00"
+}
+
+### Supprimer un projet
+DELETE {{baseUrl}}/project/delete HTTP/1.1
+Content-Type: application/json
+{
+    "id": 2
+}
+
+### Récupérer toutes les taches liées à un seul projet
+GET {{baseUrl}}/project/gettasks HTTP/1.1
+{
+    "id": 2
+}
+
+### Ajouter une tâches à un projets
+POST {{baseUrl}}/tasks/add HTTP/1.1
+Content-Type: application/json
+{
+    "id": 2,
+    "task"
+}
+
+### Modifier une tâches d'un projets
+PATCH {{baseUrl}}/tasks/modify HTTP/1.1
+Content-Type: application/json
+
+### Supprimer une tâches d'un projets
+DELETE {{baseUrl}}/tasks/delete HTTP/1.1
+Content-Type: application/json
+
+
+### Récupérer tous les temps de travail liés à un projet
+GET {{baseUrl}}/project/getworktime HTTP/1.1
+
+### Ajouter un temps de travail
+POST {{baseUrl}}/worktime/add HTTP/1.1
+Content-Type: application/json
+
+### Modifier un temps de travail existant
+PATCH {{baseUrl}}/worktime/modify HTTP/1.1
+Content-Type: application/json
+
+### Supprimer un temps de travail
+DELETE {{baseUrl}}/worktime/delete HTTP/1.1
+Content-Type: application/json
+
+
+
+
+### Test censé être faux pour effectuer un move
+POST {{baseUrl}}/chess/move/verif HTTP/1.1
+Content-Type: application/json
+
+{
+    "order": "2",
+    "piece_id": "p1w",
+    "originCase": "a2",
+    "destinationCase": "a5",
+    "killingMove": false,
+    "killCase": null
+}
+
+### Test d'inscription
+POST {{baseUrl}}/registration HTTP/1.1
+Content-Type: application/json
+
+{
+    "mail": "truc@gmail.com",
+    "nickname": "Shadowmere",
+    "password": "au4uqbf11-C-J",
+    "passwordConfirmation": "au4uqbf11-C-J"
+}
+
+### Suppression de compte
+DELETE {{baseUrl}}/account/delete HTTP/1.1
+Content-Type: application/json
+
+{
+    "mail": "truc@gmail.com",
+    "deleteAccountPassword": "au4uqbf11-C-J"
+}
+
+### Test de connexion
+POST {{baseUrl}}/connection HTTP/1.1
+Content-Type: application/json
+
+{
+    "mail": "truc@gmail.com",
+    "password": "au4uqbf11-C-J"
+}
+
+
+### Changement de mail
+POST {{baseUrl}}/account/change/mail HTTP/1.1
+Content-Type: application/json
+
+{
+    "currentMail": "truc@gmail.com",
+    "newMail": "mdrloltestmail@gmail.com",
+    "newMailConfirmation": "mdrloltestmail@gmail.com",
+    "password": "au4uqbf11-C-J"
+}
+
+### Changement de mail2
+POST {{baseUrl}}/account/change/mail HTTP/1.1
+Content-Type: application/json
+
+{
+    "currentMail": "mdrloltestmail@gmail.com",
+    "newMail": "truc@gmail.com",
+    "newMailConfirmation": "truc@gmail.com",
+    "password": "au4uqbf11-C-J"
+}
+
+
+### Changement de mot de passe
+POST {{baseUrl}}/account/change/password HTTP/1.1
+Content-Type: application/json
+
+{
+    "mail": "truc@gmail.com",
+    "oldPassword": "au4uqbf11-C-J",
+    "newPassword": "bzq_*47KiloMaz3b,",
+    "newPasswordConfirmation": "bzq_*47KiloMaz3b,"
+}
+
+### Changement de mot de passe 2
+POST {{baseUrl}}/account/change/password HTTP/1.1
+Content-Type: application/json
+
+{
+    "mail": "truc@gmail.com",
+    "oldPassword": "bzq_*47KiloMaz3b,",
+    "newPassword": "au4uqbf11-C-J",
+    "newPasswordConfirmation": "au4uqbf11-C-J"
+}
+
+### Route GET Ajouer 1 au compteur de visite
+GET {{baseUrl}}/visit/counter/add
+
+
+
+### Route GET Ajouer 1 au compteur de visite
+POST {{baseUrl}}/contact/sendmail HTTP/1.1
+Content-Type: application/json
+
+{
+"contactFormMail": "alex@gmail.com",
+"contactFormMessage": "ENCORE UN TEST",
+"contactFormName": "Alexandre",
+"contactFormSubject": "TEST"
+}
