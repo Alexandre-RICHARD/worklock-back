@@ -1,13 +1,10 @@
-import {dbRequestExecuter} from "./../database";
+import {dbRequestExecuter as db} from "./../database";
 
 export const worktimeModel = {
     "getAllWorkTimeData": async () => {
-        try {
-            const results = await dbRequestExecuter("SELECT * FROM user_data");
-            return results;
-        } catch (err) {
-            console.trace(err);
-        }
-        return null;
+        const request = "SELECT * FROM user_data";
+
+        const results = await db(request);
+        return results;
     },
 };

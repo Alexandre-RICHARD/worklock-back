@@ -8,7 +8,6 @@ const workTimeController = {
             // CODE HERE
             res.json("LOL");
         } catch (error) {
-            console.trace(error);
             res.status(200).json(error);
         }
     },

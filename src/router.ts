@@ -24,7 +24,7 @@ router.delete("/worktime/delete", workTimeController.deleteOnetWorkTime);
 // Handling all other route unassigned to a controller method
 router.use((_req: Request, res: Response): void => {
     res.status(404).json(
-        "404 - Pas de route gérée par le serveur sur cette adresse"
+        `Cette route (${_req.originalUrl}) n'est pas gérée par le serveur.`
     );
 });
 
